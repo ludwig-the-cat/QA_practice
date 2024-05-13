@@ -1,0 +1,69 @@
+{
+    "data": {
+        "tasks": {
+            "taskTree": {
+                "saveTaskTree": null,
+                "__typename": "TaskTreeMutations"
+            },
+            "__typename": "TaskMutations"
+        }
+    },
+    "errors": [
+        {
+            "message": "'NoneType' object has no attribute 'guid'",
+            "locations": [
+                {
+                    "line": 4,
+                    "column": 7
+                }
+            ],
+            "path": [
+                "tasks",
+                "taskTree",
+                "saveTaskTree"
+            ],
+            "extensions": {
+                "exception": {
+                    "stacktrace": [
+                        "Traceback (most recent call last):",
+                        "  File \"/usr/local/lib/python3.11/site-packages/graphql/execution/execute.py\", line 521, in execute_field",
+                        "    result = resolve_fn(source, info, **args)",
+                        "             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/src/uc-logging/uc_logging/middleware/transfer_current_user.py\", line 27, in transfer_current_user",
+                        "    return resolver(obj, info, **kwargs)",
+                        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/src/uc-logging/uc_logging/middleware/store_client_ip.py\", line 14, in store_client_ip",
+                        "    return resolver(obj, info, **kwargs)",
+                        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/src/uc-ariadne/uc_ariadne/middleware/slow_resolver.py\", line 6, in slow_resolver",
+                        "    value = resolver(obj, info, **args)",
+                        "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/src/uc-ariadne/uc_ariadne/decorators/current_user.py\", line 37, in wrapper",
+                        "    return func(*args, **kwargs, **get_current_user_from_info(args, kwargs))",
+                        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/tasks/graphql_ariadne/app/mutations.py\", line 45, in resolve_save_task_tree",
+                        "    return TaskTreeService().save_task_tree(",
+                        "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/tasks/services/task_tree_service/task_tree_service.py\", line 164, in save_task_tree",
+                        "    ForumService().save_forum(task_tree_id=id)",
+                        "  File \"/application/tasks/services/forum_service/forum_service.py\", line 73, in save_forum",
+                        "    task_tree = TaskTreeService().get_task_tree(id=task_tree_id)",
+                        "                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                        "  File \"/application/tasks/services/task_tree_service/task_tree_service.py\", line 69, in get_task_tree",
+                        "    TaskTreePermissionService().check_user_tree_permission(user_id=current_user.guid,",
+                        "                                                                   ^^^^^^^^^^^^^^^^^",
+                        "AttributeError: 'NoneType' object has no attribute 'guid'"
+                    ],
+                    "context": {
+                        "self": "<tasks.servic...x7fbce8732010>",
+                        "id": "UUID('6281307...f6cad120ea6d')",
+                        "current_user": "None",
+                        "with_deleted": "False",
+                        "admin": "False",
+                        "instance": "<TaskTree: 123>"
+                    }
+                }
+            }
+        }
+    ]
+}
