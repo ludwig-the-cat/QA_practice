@@ -1,0 +1,26 @@
+[
+    {
+        "message": "Cannot query field 'mediaDataSave' on type 'Mutation'.",
+        "locations": [
+            {
+                "line": 2,
+                "column": 3
+            }
+        ],
+        "extensions": {
+            "exception": null
+        }
+    },
+    {
+        "message": "Cannot query field 'id' on type 'MediaDataNode'. Did you mean 'uid'?",
+        "locations": [
+            {
+                "line": 9,
+                "column": 3
+            }
+        ],
+        "extensions": {
+            "exception": null
+        }
+    }
+]
